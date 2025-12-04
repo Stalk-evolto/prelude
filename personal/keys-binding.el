@@ -1,4 +1,9 @@
+;; smartparens mode keys binding.
+;; See the link https://ebzzry.com/en/emacs-pairs
+
 (prelude-require-package 'use-package)
+
+(define-key input-decode-map "\C-i" [C-i])
 
 (bind-keys
  :map smartparens-mode-map
