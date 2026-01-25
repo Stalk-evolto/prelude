@@ -16,6 +16,7 @@
 ;;; You should have received a copy of the GNU General Public License
 ;;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
 
+(prelude-require-package 'pyvenv)
 (add-hook 'python-mode-hook
           (lambda ()
             (define-key prelude-mode-map (kbd "C-c TAB") nil t)))
