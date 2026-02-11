@@ -28,16 +28,22 @@
           (make-llm-openai-compatible
            :url "http://localhost:5432/v1/")
           llm-warn-on-nonfree nil)
-
-  ;; customize display buffer behaviour
-  ;; see ~(info "(elisp) Buffer Display Action Functions")~
-  (setopt ellama-chat-display-action-function #'display-buffer-full-frame)
-  (setopt ellama-instant-display-action-function #'display-buffer-at-bottom)
+  ;; display reasoning buffer.
+  (setopt ellama-show-reasoning f)
   :config
   ;; show ellama context in header line in all buffers
   (ellama-context-header-line-global-mode +1)
   ;; show ellama session id in header line in all buffers
-  (ellama-session-header-line-global-mode +1)
-  ;; handle scrolling events
-  (advice-add 'pixel-scroll-precision :before #'ellama-disable-scroll)
-  (advice-add 'end-of-buffer :after #'ellama-enable-scroll))
+  (ellama-session-header-line-global-mode +1))
+
+(require 'ellama)
+(defun ellama-generate-name-by-provider (provider action prompt)
+  (string-join
+   (flatten-tree
+    (list (split-string (format "%s" action) "-")
+          (format "%s" (buffer-name))
+          (format "(%s)" (llm-name provider))))
+   " "))
+(setopt ellama-naming-scheme #'ellama-generate-name-by-provider)
+
+(keymap-global-set "C-c C-t" 'ellama-translate-buffer)
