@@ -123,6 +123,7 @@
         (with-editor . "melpa-stable")
         (yaml-mode . "melpa-stable")
         (yasnippet . "melpa-stable")
-        (zenburn-theme . "melpa-stable")
+        (yasnippet-snippets . "melpa-stable")
+        (monokai-theme . "melpa-stable")
         (zop-to-char . "melpa-stable")
         ))

@@ -33,7 +33,7 @@
 (require 'prelude-programming)
 
 (defun prelude-c-mode-common-defaults ()
-  (setq c-default-style "k&r"
+  (setq c-default-style "gnu"
         c-basic-offset 4)
   (c-set-offset 'substatement-open 0))
 

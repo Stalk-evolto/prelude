@@ -117,7 +117,7 @@ Only modes that don't derive from `prog-mode' should be listed here."
   :type 'number
   :group 'prelude)
 
-(defcustom prelude-theme 'zenburn
+(defcustom prelude-theme 'monokai
   "The default color theme, change this in your /personal/preload config."
   :type 'symbol
   :group 'prelude)

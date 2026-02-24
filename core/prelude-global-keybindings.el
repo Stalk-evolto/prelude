@@ -93,7 +93,7 @@
 
 ;; Magit creates some global keybindings by default
 ;; but it's a nice to complement them with this one
-(global-set-key (kbd "C-c g") 'magit-file-dispatch)
+;; (global-set-key (kbd "C-c g") 'magit-file-dispatch)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
 

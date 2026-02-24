@@ -44,9 +44,10 @@
 ;; (require 'prelude-ido) ;; Supercharges Emacs completion for C-x C-f and more
 ;; (require 'prelude-ivy) ;; A mighty modern alternative to ido
 (require 'prelude-vertico) ;; A powerful, yet simple, alternative to ivy
-;; (require 'prelude-helm) ;; Interface for narrowing and search
+(require 'prelude-helm) ;; Interface for narrowing and search
 ;; (require 'prelude-helm-everywhere) ;; Enable Helm everywhere
 (require 'prelude-company)
+(require 'prelude-yasnippet)
 ;; (require 'prelude-key-chord) ;; Binds useful features to key combinations
 
 ;;; Vim emulation
@@ -77,7 +78,7 @@
 ;; (require 'prelude-go)
 ;; (require 'prelude-haskell)
 (require 'prelude-js)
-;; (require 'prelude-latex)
+(require 'prelude-latex)
 (require 'prelude-lisp) ;; Common setup for Lisp-like languages
 ;; (require 'prelude-literate-programming) ;; Setup for Literate Programming
 (require 'prelude-lsp) ;; Base setup for the Language Server Protocol
