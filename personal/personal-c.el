@@ -49,6 +49,9 @@
   :init
   (global-semanticdb-minor-mode t)
   (global-semantic-idle-schedule-mode t)
+  (global-semantic-decoration-mode t)
+  (global-semantic-highlight-func-mode t)
+  (global-semantic-show-unmatched-syntax-mode t)
   (semantic-mode t)
   (semantic-add-system-include c-include-path))
 

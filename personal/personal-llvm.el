@@ -47,3 +47,4 @@
 (setopt ellama-naming-scheme #'ellama-generate-name-by-provider)
 
 (keymap-global-set "C-c C-t" 'ellama-translate-buffer)
+(keymap-global-set "C-c t" 'ellama-translate)

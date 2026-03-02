@@ -45,6 +45,7 @@
 
  ("C-x C-t" . sp-transpose-hybrid-sexp))
 
+(keymap-unset smartparens-mode-map "M-s" t)
 (add-hook 'geiser-repl-mode-hook
           (lambda ()
             (define-key prelude-mode-map (kbd "C-c TAB") nil t)))
