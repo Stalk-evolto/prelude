@@ -2,6 +2,12 @@
   (delete-dups (split-string (getenv "C_INCLUDE_PATH") ":"))
   "The system C programming include path.")
 
+(defun setenv-ld-library-path ()
+  "Set LD_LIBRARY_PATH value same LIBRARY_PATH."
+  (interactive)
+  (setenv "LD_LIBRARY_PATH" (getenv "LIBRARY_PATH")))
+(add-hook 'c-mode-common-hook #'setenv-ld-library-path)
+
 ;; set gtags.
 (autoload 'gtags-mode "gtags" "" t)
 (require 'gtags)
@@ -25,13 +31,12 @@
 (global-semantic-highlight-func-mode 1)
 (global-semantic-show-unmatched-syntax-mode 1)
 (semantic-mode 1)
-(dolist (include-path c-include-path)
-  (semantic-add-system-include include-path))
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (dolist (include-path c-include-path)
+              (semantic-add-system-include include-path))
+            (setq semantic-c-dependency-system-include-path c-include-path)))
 (define-key semantic-mode-map "\C-c,." #'semantic-ia-fast-jump)
-
-;; set ede mode manage Automake.
-(require 'ede)
-(global-ede-mode t)
 
 ;; set hs-minor for create hide.
 (add-hook 'c-mode-common-hook 'hs-minor-mode)
@@ -40,9 +45,8 @@
 (use-package company-c-headers
   :init
   (add-to-list 'company-backends 'company-c-headers)
-  (dolist (include-path c-include-path)
-    (setq company-c-headers-path-system
-          include-path)))
+  (setq company-c-headers-path-system
+        c-include-path))
 
 (setq
  ;; use gdb-many-windows by default
